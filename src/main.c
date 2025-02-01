@@ -182,9 +182,14 @@ void export_csv(const char* filename) {
 
 // Calculate heat index using temperature and humidity
 float calculate_heat_index(float temp, float humidity) {
-    // Simplified heat index calculation
-    float hi = 0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (humidity*0.094));
-    return hi;
+    return 0.5 * (temp + 61.0 + ((temp - 68.0) * 1.2) + (humidity * 0.094));
+}
+
+// Compute heat indices for all records
+void calculate_heat_indices(void) {
+    for (int i = 0; i < record_count; i++) {
+        records[i].heat_index = calculate_heat_index(records[i].temperature, records[i].humidity);
+    }
 }
 
 // Analyze weather trends

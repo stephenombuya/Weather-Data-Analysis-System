@@ -47,7 +47,6 @@ int load_data(const char* filename) {
     }
 
     char line[MAX_LINE_LENGTH];
-    // Skip header line
     fgets(line, MAX_LINE_LENGTH, file);
 
     while (fgets(line, MAX_LINE_LENGTH, file) && record_count < MAX_RECORDS) {
